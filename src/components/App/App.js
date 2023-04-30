@@ -3,6 +3,7 @@ import './App.css';
 import Header from "../Header/Header";
 import List from "../List/List";
 import Counter from "../Counter/Counter";
+import HelloWorld from "../HelloWorld/HelloWorld";
 
 class App extends Component {
   state = {
@@ -26,6 +27,8 @@ class App extends Component {
         <List items={this.state.arrayNames}/>
         <Header aboutTask={this.state.aboutTask2} descriptionTask={this.state.descriptionTask2}/>
         <Counter/>
+        <Header aboutTask={this.state.aboutTask3} descriptionTask={this.state.descriptionTask3}/>
+        <HelloWorld text={"Hello world!!!"}/>
       </div>
     );
   }
