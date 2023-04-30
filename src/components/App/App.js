@@ -2,6 +2,7 @@ import {Component} from "react";
 import './App.css';
 import Header from "../Header/Header";
 import List from "../List/List";
+import Counter from "../Counter/Counter";
 
 class App extends Component {
   state = {
@@ -23,6 +24,8 @@ class App extends Component {
       <div className="App">
         <Header aboutTask={this.state.aboutTask1} descriptionTask={this.state.descriptionTask1}/>
         <List items={this.state.arrayNames}/>
+        <Header aboutTask={this.state.aboutTask2} descriptionTask={this.state.descriptionTask2}/>
+        <Counter/>
       </div>
     );
   }

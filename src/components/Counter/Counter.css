@@ -1,0 +1,28 @@
+.Counter{
+    padding: 30px 0;
+    background-color: #C9A66B;
+    text-align: center;
+}
+
+.Counter span{
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid grey;
+    padding: 7px 0;
+    width: 40px;
+}
+
+.Counter button{
+    margin-right: 10px;
+    user-select: none;
+}
+
+.Counter button:first-child:active{
+   background-color: green;
+}
+
+.Counter button:nth-child(2):active{
+    background-color: red;
+}
