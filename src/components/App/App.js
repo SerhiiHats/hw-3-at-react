@@ -24,25 +24,42 @@ class App extends Component {
     arrayOfRainbow2: ["indigo"],
   }
 
+  // handlerToDropList(flag= false){
+  //   let newArrayOfRainbow1 = this.state.arrayOfRainbow1.slice(0);
+  //   let newArrayOfRainbow2 = this.state.arrayOfRainbow2.slice(0);
+
+  //   if(!flag){
+  //     if(this.state.arrayOfRainbow1.length === 0){
+  //       return
+  //     }
+  //     const item = newArrayOfRainbow1.shift();
+  //     newArrayOfRainbow2.push(item);
+
+  //   } else {
+  //     if(this.state.arrayOfRainbow2.length === 0){
+  //       return
+  //     }
+  //     const item = newArrayOfRainbow2.shift();
+  //     newArrayOfRainbow1.push(item);
+  //   }
+
+  //   this.setState({
+  //     arrayOfRainbow1: newArrayOfRainbow1,
+  //     arrayOfRainbow2: newArrayOfRainbow2,
+  //   });
+  // }
+
   handlerToDropList(flag= false){
-    let newArrayOfRainbow1 = this.state.arrayOfRainbow1.slice(0);
-    let newArrayOfRainbow2 = this.state.arrayOfRainbow2.slice(0);
+    const { arrayOfRainbow1, arrayOfRainbow2 } = this.state;
 
-    if(!flag){
-      if(this.state.arrayOfRainbow1.length === 0){
-        return
-      }
-      const item = newArrayOfRainbow1.shift();
-      newArrayOfRainbow2.push(item);
-
-    } else {
-      if(this.state.arrayOfRainbow2.length === 0){
-        return
-      }
-      const item = newArrayOfRainbow2.shift();
-      newArrayOfRainbow1.push(item);
+    if ((!flag && arrayOfRainbow1.length === 0) || (flag && arrayOfRainbow2.length === 0)) {
+      return;
     }
-
+  
+    const item = flag ? arrayOfRainbow2.shift() : arrayOfRainbow1.shift();
+    const newArrayOfRainbow1 = flag ? [...arrayOfRainbow1, item] : arrayOfRainbow1;
+    const newArrayOfRainbow2 = flag ? arrayOfRainbow2 : [...arrayOfRainbow2, item];
+  
     this.setState({
       arrayOfRainbow1: newArrayOfRainbow1,
       arrayOfRainbow2: newArrayOfRainbow2,
