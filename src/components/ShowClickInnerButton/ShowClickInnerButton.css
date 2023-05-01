@@ -2,4 +2,11 @@
     min-height: 150px;
     padding: 20px;
     background-color: #C9A66B;
+    margin: 20px;
+    border: 2px solid gray;
+}
+
+.ShowClickInnerButton button{
+margin-top: 20px;
+padding: 5px;
 }
