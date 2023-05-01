@@ -66,6 +66,7 @@ class App extends Component {
           </div>
           <ListRender items={this.state.arrayOfRainbow2}/>
         </div>
+        <Header aboutTask={this.state.aboutTask5} descriptionTask={this.state.descriptionTask5}/>
       </div>
     );
   }

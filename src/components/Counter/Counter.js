@@ -42,8 +42,8 @@ class Counter extends Component {
   render() {
     return (
       <div className="Counter">
-        <button onClick={() => this.handlerCounter()}>Incriment</button>
-        <button onClick={() => this.handlerCounter(-1)}>Decrement</button>
+        <button onClick={() => this.handlerCounter()}>+</button>
+        <button onClick={() => this.handlerCounter(-1)}>-</button>
         <button onClick={() => this.handlerCounter(this.state.count * -1)}>Reset</button>
         <span style={{color: this.state.arrayOfColor[this.state.index]}}>{this.state.count}</span>
       </div>

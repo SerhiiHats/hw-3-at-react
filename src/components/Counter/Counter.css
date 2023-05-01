@@ -17,6 +17,16 @@
 .Counter button{
     margin-right: 10px;
     user-select: none;
+    padding: 6px 7px;
+    font-weight: bold;
+}
+
+.Counter button:nth-child(1){
+   padding: 6px 20px;
+}
+
+.Counter button:nth-child(2){
+    padding: 6px 20px;
 }
 
 .Counter button:first-child:active{
