@@ -1,4 +1,4 @@
-import {Component} from "react";
+import { Component } from "react";
 import './App.css';
 import Header from "../Header/Header";
 import List from "../List/List";
@@ -24,68 +24,43 @@ class App extends Component {
     arrayOfRainbow2: ["indigo"],
   }
 
-  // handlerToDropList(flag= false){
-  //   let newArrayOfRainbow1 = this.state.arrayOfRainbow1.slice(0);
-  //   let newArrayOfRainbow2 = this.state.arrayOfRainbow2.slice(0);
-
-  //   if(!flag){
-  //     if(this.state.arrayOfRainbow1.length === 0){
-  //       return
-  //     }
-  //     const item = newArrayOfRainbow1.shift();
-  //     newArrayOfRainbow2.push(item);
-
-  //   } else {
-  //     if(this.state.arrayOfRainbow2.length === 0){
-  //       return
-  //     }
-  //     const item = newArrayOfRainbow2.shift();
-  //     newArrayOfRainbow1.push(item);
-  //   }
-
-  //   this.setState({
-  //     arrayOfRainbow1: newArrayOfRainbow1,
-  //     arrayOfRainbow2: newArrayOfRainbow2,
-  //   });
-  // }
-
-  handlerToDropList(flag= false){
+  handlerToDropList(flag = false) {
     const { arrayOfRainbow1, arrayOfRainbow2 } = this.state;
 
     if ((!flag && arrayOfRainbow1.length === 0) || (flag && arrayOfRainbow2.length === 0)) {
       return;
     }
-  
+
     const item = flag ? arrayOfRainbow2.shift() : arrayOfRainbow1.shift();
     const newArrayOfRainbow1 = flag ? [...arrayOfRainbow1, item] : arrayOfRainbow1;
     const newArrayOfRainbow2 = flag ? arrayOfRainbow2 : [...arrayOfRainbow2, item];
-  
+
     this.setState({
       arrayOfRainbow1: newArrayOfRainbow1,
       arrayOfRainbow2: newArrayOfRainbow2,
     });
   }
-
+  
   render() {
     return (
       <div className="App">
-        <Header aboutTask={this.state.aboutTask1} descriptionTask={this.state.descriptionTask1}/>
-        <List items={this.state.arrayNames}/>
-        <Header aboutTask={this.state.aboutTask2} descriptionTask={this.state.descriptionTask2}/>
-        <Counter/>
-        <Header aboutTask={this.state.aboutTask3} descriptionTask={this.state.descriptionTask3}/>
-        <HelloWorld text={"Hello world!!!"}/>
-        <Header aboutTask={this.state.aboutTask4} descriptionTask={this.state.descriptionTask4}/>
+        <Header aboutTask={this.state.aboutTask1} descriptionTask={this.state.descriptionTask1} />
+        <List items={this.state.arrayNames} />
+        <Header aboutTask={this.state.aboutTask2} descriptionTask={this.state.descriptionTask2} />
+        <Counter />
+        <Header aboutTask={this.state.aboutTask3} descriptionTask={this.state.descriptionTask3} />
+        <HelloWorld text={"Hello world!!!"} />
+        <Header aboutTask={this.state.aboutTask4} descriptionTask={this.state.descriptionTask4} />
         <div className={"Wrap-lists"}>
-          <ListRender items={this.state.arrayOfRainbow1}/>
+          <ListRender items={this.state.arrayOfRainbow1} />
           <div>
-            <button onClick={()=>this.handlerToDropList()} className={"BtnDrop"}>Click to drop ⇒</button>
-            <button onClick={()=>this.handlerToDropList(true)} className={"BtnDrop"}>⇐ Click to drop</button>
+            <button onClick={() => this.handlerToDropList()} className={"BtnDrop"}>Click to drop ⇒</button>
+            <button onClick={() => this.handlerToDropList(true)} className={"BtnDrop"}>⇐ Click to drop</button>
           </div>
-          <ListRender items={this.state.arrayOfRainbow2}/>
+          <ListRender items={this.state.arrayOfRainbow2} />
         </div>
-        <Header aboutTask={this.state.aboutTask5} descriptionTask={this.state.descriptionTask5}/>
-        <ShowClickInnerButton/>
+        <Header aboutTask={this.state.aboutTask5} descriptionTask={this.state.descriptionTask5} />
+        <ShowClickInnerButton />
       </div>
     );
   }
