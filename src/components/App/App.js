@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import List from "../List/List";
 import Counter from "../Counter/Counter";
 import HelloWorld from "../HelloWorld/HelloWorld";
+import ListRender from "../ListRender/ListRender";
 
 class App extends Component {
   state = {
@@ -18,6 +19,33 @@ class App extends Component {
     descriptionTask4: "Створіть сайт, на якому є 2 списки та кнопка. Після натискання на кнопку перший елемент зі списку 1 переходить на кінець списку 2.",
     descriptionTask5: "Створіть компонент, що буде рендерити div, всередині якого є кнопка. Клацанням на div виведіть у консоль «Div clicked», а натисканням на кнопку – «Button clicked». Коли ви натиснете кнопку, то побачите «Button clicked» і «Div clicked», а маєте побачити тільки повідомлення від кнопки. Розв'яжіть цю проблему.",
     arrayNames: ["Анатолій", "Анатолій", "Буревій", "Анатолій", "Вероніка", "Буревій", "Кристина", "Ольга", "Сергій", "Анатолій", "Вероніка", "Сергій"],
+    arrayOfRainbow1: ["red", "orange", "yellow", "green", "blue", "indigo", "violet"],
+    arrayOfRainbow2: ["indigo"],
+  }
+
+  handlerToDropList(flag= false){
+    let newArrayOfRainbow1 = this.state.arrayOfRainbow1.slice(0);
+    let newArrayOfRainbow2 = this.state.arrayOfRainbow2.slice(0);
+
+    if(!flag){
+      if(this.state.arrayOfRainbow1.length === 0){
+        return
+      }
+      const item = newArrayOfRainbow1.shift();
+      newArrayOfRainbow2.push(item);
+
+    } else {
+      if(this.state.arrayOfRainbow2.length === 0){
+        return
+      }
+      const item = newArrayOfRainbow2.shift();
+      newArrayOfRainbow1.push(item);
+    }
+
+    this.setState({
+      arrayOfRainbow1: newArrayOfRainbow1,
+      arrayOfRainbow2: newArrayOfRainbow2,
+    });
   }
 
   render() {
@@ -29,6 +57,15 @@ class App extends Component {
         <Counter/>
         <Header aboutTask={this.state.aboutTask3} descriptionTask={this.state.descriptionTask3}/>
         <HelloWorld text={"Hello world!!!"}/>
+        <Header aboutTask={this.state.aboutTask4} descriptionTask={this.state.descriptionTask4}/>
+        <div className={"Wrap-lists"}>
+          <ListRender items={this.state.arrayOfRainbow1}/>
+          <div>
+            <button onClick={()=>this.handlerToDropList()} className={"BtnDrop"}>Click to drop ⇒</button>
+            <button onClick={()=>this.handlerToDropList(true)} className={"BtnDrop"}>⇐ Click to drop</button>
+          </div>
+          <ListRender items={this.state.arrayOfRainbow2}/>
+        </div>
       </div>
     );
   }
