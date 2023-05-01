@@ -5,6 +5,7 @@ import List from "../List/List";
 import Counter from "../Counter/Counter";
 import HelloWorld from "../HelloWorld/HelloWorld";
 import ListRender from "../ListRender/ListRender";
+import ShowClickInnerButton from "../ShowClickInnerButton/ShowClickInnerButton";
 
 class App extends Component {
   state = {
@@ -67,6 +68,7 @@ class App extends Component {
           <ListRender items={this.state.arrayOfRainbow2}/>
         </div>
         <Header aboutTask={this.state.aboutTask5} descriptionTask={this.state.descriptionTask5}/>
+        <ShowClickInnerButton/>
       </div>
     );
   }
